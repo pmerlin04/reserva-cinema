@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema</title>
+    <script src="jquerys/jquery-3.3.1.min.js"></script>
+    <script>
+     $(document).ready(function(e){   
+     $('.central div').click(function(e){
+        sit = $(this).attr('class');
+        if(sit != "ocupado"){
+            resp = confirm("Confirma reservar assento?");
+            if(resp == true){
+                nome = prompt("Digite o nome do passageiro");
+                $(this).addClass('ocupado');
+                atual = $(this).html();
+                $(this).html(atual + "<br>"+nome);
+            }
+        }else{
+            resp = confirm("Confirma cancelar a reserva do assento?");
+            if(resp == true){
+                $(this).removeClass('ocupado');
+                $(this).html(atual);
+            }
+        }
+        });
+    });
+     
+    </script>
+
+    <link rel="stylesheet" href="estilo2.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+    <div class="central">
+        
+        <script>
+            for(x=1; x<=9; x++){
+			    assento = "A"+x;
+			    document.write("<div id="+assento+">"+assento+"</div>");
+		}
+        </script>
+           
+    </div>
+       
+    
+</body>
+</html>
